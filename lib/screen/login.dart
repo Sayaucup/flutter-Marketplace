@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
+import 'package:marketplace/screen/bottomtabs/tabs.dart';
 import 'package:marketplace/screen/register.dart';
 
 class Login extends StatefulWidget {
@@ -172,29 +173,35 @@ class _LoginState extends State<Login> {
             ),
             Align(
                 alignment: Alignment.center,
-                child: Container(
-                  padding: EdgeInsets.symmetric(vertical: 13),
-                  margin: EdgeInsets.symmetric(horizontal: 30),
-                  width: MediaQuery.of(context).size.width,
-                  decoration: BoxDecoration(
-                      borderRadius: BorderRadius.circular(7),
-                      color: Theme.of(context).primaryColor,
-                      boxShadow: [
-                        BoxShadow(
-                          color: Colors.grey.withOpacity(0.5),
-                          spreadRadius: 2,
-                          blurRadius: 7,
-                          offset: Offset(0, 3),
-                        )
-                      ]),
-                  child: Center(
-                      child: Text(
-                    'Login',
-                    style: TextStyle(
-                        color: Theme.of(context).accentColor,
-                        fontWeight: FontWeight.w700,
-                        letterSpacing: 1),
-                  )),
+                child: InkWell(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Tabs()));
+                  },
+                  child: Container(
+                    padding: EdgeInsets.symmetric(vertical: 13),
+                    margin: EdgeInsets.symmetric(horizontal: 30),
+                    width: MediaQuery.of(context).size.width,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(7),
+                        color: Theme.of(context).primaryColor,
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey.withOpacity(0.5),
+                            spreadRadius: 2,
+                            blurRadius: 7,
+                            offset: Offset(0, 3),
+                          )
+                        ]),
+                    child: Center(
+                        child: Text(
+                      'Login',
+                      style: TextStyle(
+                          color: Theme.of(context).accentColor,
+                          fontWeight: FontWeight.w700,
+                          letterSpacing: 1),
+                    )),
+                  ),
                 )),
             SizedBox(
               height: 20,
