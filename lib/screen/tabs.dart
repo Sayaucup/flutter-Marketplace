@@ -3,7 +3,7 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:marketplace/screen/bottomtabs/account.dart';
 import 'package:marketplace/screen/bottomtabs/cart.dart';
 import 'package:marketplace/screen/bottomtabs/home.dart';
-import 'package:marketplace/screen/bottomtabs/search.dart';
+import 'package:marketplace/screen/bottomtabs/news.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 
 class Tabs extends StatefulWidget {
@@ -14,10 +14,11 @@ class Tabs extends StatefulWidget {
 class _TabsState extends State<Tabs> {
   var _tabs = [
     Home(),
-    Search(),
+    News(),
     Cart(),
     Account(),
   ];
+  var controller = PageController();
 
   int currentPage = 0;
   @override
@@ -32,14 +33,28 @@ class _TabsState extends State<Tabs> {
           });
         },
         type: BottomNavigationBarType.fixed,
-        showSelectedLabels: false,
+        showSelectedLabels: true,
         showUnselectedLabels: false,
         selectedItemColor: Theme.of(context).primaryColor,
         items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(icon: Icon(Octicons.home),title: Text('Home')),
-          BottomNavigationBarItem(icon: Icon(Octicons.search),title: Text('Search')),
-          BottomNavigationBarItem(icon: Icon(Zocial.cart),title: Text('Cart')),
-          BottomNavigationBarItem(icon: Icon(Typicons.user_outline),title: Text('Account')),
+          BottomNavigationBarItem(
+              icon: Icon(Octicons.home),
+              title: Text(
+                'o',
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+              )),
+          BottomNavigationBarItem(
+              icon: Icon(Typicons.news),
+              title: Text('o',
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
+          BottomNavigationBarItem(
+              icon: Icon(Typicons.shopping_cart),
+              title: Text('o',
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
+          BottomNavigationBarItem(
+              icon: Icon(Typicons.user_outline),
+              title: Text('o',
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
         ],
       ),
     );
