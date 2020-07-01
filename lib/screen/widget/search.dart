@@ -82,7 +82,7 @@ class _SearchState extends State<Search> {
                       enabledBorder: InputBorder.none,
                       errorBorder: InputBorder.none,
                       disabledBorder: InputBorder.none,
-                      hintText: 'Search here...',
+                      hintText: 'Search products ...',
                     ),
                   ),
                 ),

@@ -192,10 +192,10 @@ class _LoginState extends State<Login> {
                   alignment: Alignment.center,
                   child: InkWell(
                     onTap: () {
-                      if (_form.currentState.validate()) {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Tabs()));
-                      }
+                      // if (_form.currentState.validate()) {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Tabs()));
+                      // }
                     },
                     child: Container(
                       padding: EdgeInsets.symmetric(vertical: 13),

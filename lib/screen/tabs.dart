@@ -40,20 +40,20 @@ class _TabsState extends State<Tabs> {
           BottomNavigationBarItem(
               icon: Icon(Octicons.home),
               title: Text(
-                'o',
+                'Home',
                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
               )),
           BottomNavigationBarItem(
               icon: Icon(Typicons.news),
-              title: Text('o',
+              title: Text('News',
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
           BottomNavigationBarItem(
               icon: Icon(Typicons.shopping_cart),
-              title: Text('o',
+              title: Text('Cart',
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
           BottomNavigationBarItem(
               icon: Icon(Typicons.user_outline),
-              title: Text('o',
+              title: Text('User',
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
         ],
       ),

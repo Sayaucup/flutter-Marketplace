@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
 import 'package:marketplace/screen/widget/search.dart';
-import 'package:typicons_flutter/typicons_flutter.dart';
 
 class Appbar extends StatefulWidget {
   @override
@@ -21,7 +20,7 @@ class _AppbarState extends State<Appbar> {
                   context, MaterialPageRoute(builder: (context) => Search()));
             },
             child: Container(
-              margin: EdgeInsets.only(top: 10, left: 10),
+              margin: EdgeInsets.only(top: 10, left: 15, right: 15),
               height: MediaQuery.of(context).size.height * 0.08,
               // width: MediaQuery.of(context).size.width - 100,
               decoration: BoxDecoration(
@@ -46,7 +45,7 @@ class _AppbarState extends State<Appbar> {
                     ),
                   ),
                   Text(
-                    'Search here...',
+                    'Search products',
                     style: TextStyle(fontSize: 17, color: Colors.grey),
                   ),
                 ],
@@ -54,28 +53,28 @@ class _AppbarState extends State<Appbar> {
             ),
           ),
         ),
-        Padding(
-          padding: EdgeInsets.only(left: 10, right: 5, top: 10),
-          child: InkWell(
-            onTap: () {},
-            child: Icon(
-              Typicons.shopping_cart,
-              size: 30,
-              color: Theme.of(context).primaryColor,
-            ),
-          ),
-        ),
-        Padding(
-          padding: EdgeInsets.only(left: 5, right: 10, top: 10),
-          child: InkWell(
-            onTap: () {},
-            child: Icon(
-              Entypo.bell,
-              size: 25,
-              color: Theme.of(context).primaryColor,
-            ),
-          ),
-        ),
+        // Padding(
+        //   padding: EdgeInsets.only(left: 10, right: 5, top: 10),
+        //   child: InkWell(
+        //     onTap: () {},
+        //     child: Icon(
+        //       Typicons.shopping_cart,
+        //       size: 30,
+        //       color: Theme.of(context).primaryColor,
+        //     ),
+        //   ),
+        // ),
+        // Padding(
+        //   padding: EdgeInsets.only(left: 5, right: 10, top: 10),
+        //   child: InkWell(
+        //     onTap: () {},
+        //     child: Icon(
+        //       Entypo.bell,
+        //       size: 25,
+        //       color: Theme.of(context).primaryColor,
+        //     ),
+        //   ),
+        // ),
       ],
     );
   }
