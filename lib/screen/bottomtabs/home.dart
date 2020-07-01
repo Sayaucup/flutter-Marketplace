@@ -17,7 +17,7 @@ class _HomeState extends State<Home> {
       if (time >= '05:00:00' && time <= '11:00:00') {
         Text('Morning');
       } else if (time >= '11:00:00' && time <= '15:00:00') {
-        Text('Noon');
+        Text('Noo');
       } else if (time >= '15:00:00' && time <= '18:00:00') {
         Text('Afternoon');
       } else if (time >= '18:00:00' && time <= '05:00:00') {
