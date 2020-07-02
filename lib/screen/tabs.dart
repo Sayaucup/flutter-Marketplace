@@ -3,7 +3,8 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:marketplace/screen/bottomtabs/account.dart';
 import 'package:marketplace/screen/bottomtabs/cart.dart';
 import 'package:marketplace/screen/bottomtabs/home.dart';
-import 'package:marketplace/screen/bottomtabs/news.dart';
+import 'package:marketplace/screen/bottomtabs/voucher.dart';
+import 'package:marketplace/screen/bottomtabs/category.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 
 class Tabs extends StatefulWidget {
@@ -13,14 +14,15 @@ class Tabs extends StatefulWidget {
 
 class _TabsState extends State<Tabs> {
   var _tabs = [
-    Home(),
+    Category(),
     News(),
+    Home(),
     Cart(),
     Account(),
   ];
   var controller = PageController();
 
-  int currentPage = 0;
+  int currentPage = 2;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,15 +40,19 @@ class _TabsState extends State<Tabs> {
         selectedItemColor: Theme.of(context).primaryColor,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
+              icon: Icon(Typicons.th_large_outline),
+              title: Text('Category',
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
+          BottomNavigationBarItem(
+              icon: Icon(Typicons.tags),
+              title: Text('Voucher',
+                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
+          BottomNavigationBarItem(
               icon: Icon(Octicons.home),
               title: Text(
                 'Home',
                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
               )),
-          BottomNavigationBarItem(
-              icon: Icon(Typicons.news),
-              title: Text('News',
-                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
           BottomNavigationBarItem(
               icon: Icon(Typicons.shopping_cart),
               title: Text('Cart',

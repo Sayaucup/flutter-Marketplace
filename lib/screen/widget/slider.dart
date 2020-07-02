@@ -38,7 +38,11 @@ class _ImageSliderState extends State<ImageSlider> {
               return Builder(
                 builder: (BuildContext context) {
                   return Container(
+                    decoration: BoxDecoration(
+                        border: Border.all(width: 2, color: Colors.white),
+                        borderRadius: BorderRadius.circular(20)),
                     width: MediaQuery.of(context).size.width,
+                    padding: EdgeInsets.all(2),
                     margin: EdgeInsets.symmetric(horizontal: 10),
                     child: ClipRRect(
                       borderRadius: BorderRadius.circular(16),

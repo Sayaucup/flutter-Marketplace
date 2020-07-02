@@ -103,13 +103,15 @@ class _RegisterState extends State<Register> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'By registering you agree to',
-                style: TextStyle(fontSize: 11, color: Colors.grey),
+                'By registering you agree to ',
+                style: TextStyle(fontSize: 11, color: Colors.black54),
               ),
               Text(
                 'Terms & Conditions',
                 style: TextStyle(
-                    fontSize: 11, fontWeight: FontWeight.bold,color: Theme.of(context).primaryColor),
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).primaryColor),
               ),
             ],
           ),
@@ -117,17 +119,19 @@ class _RegisterState extends State<Register> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               Text(
-                'and',
-                style: TextStyle(fontSize: 11, color: Colors.grey),
+                'and ',
+                style: TextStyle(fontSize: 11, color: Colors.black54),
               ),
               Text(
-                'Privacy Policy',
+                'Privacy Policy ',
                 style: TextStyle(
-                    fontSize: 11, fontWeight: FontWeight.bold,color: Theme.of(context).primaryColor),
+                    fontSize: 11,
+                    fontWeight: FontWeight.bold,
+                    color: Theme.of(context).primaryColor),
               ),
               Text(
                 'of the Fresh Market',
-                style: TextStyle(fontSize: 11, color: Colors.grey),
+                style: TextStyle(fontSize: 11, color: Colors.black54),
               ),
             ],
           ),

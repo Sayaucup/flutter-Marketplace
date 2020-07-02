@@ -232,7 +232,7 @@ class _LoginState extends State<Login> {
                   children: <Widget>[
                     Text(
                       'Dont have an account?',
-                      style: TextStyle(fontSize: 13, color: Colors.grey),
+                      style: TextStyle(fontSize: 13, color: Colors.black54),
                     ),
                     SizedBox(
                       width: 5,

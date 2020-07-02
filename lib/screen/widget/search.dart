@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:typicons_flutter/typicons_flutter.dart';
+import 'package:marketplace/screen/widget/widget_search.dart';
 
 class Search extends StatefulWidget {
   @override
@@ -8,45 +8,21 @@ class Search extends StatefulWidget {
 }
 
 class _SearchState extends State<Search> {
-  final TextEditingController _controller = TextEditingController();
-
-  Widget close() {
-    return Padding(
-      padding: EdgeInsets.only(right: 10, bottom: 5),
-      child: InkWell(
-        onTap: () {
-          _controller.clear();
-        },
-        child: Icon(
-          Icons.close,
-          size: 20,
-          color: Theme.of(context).primaryColor,
-        ),
-      ),
-    );
-  }
-
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: Row(
-        children: <Widget>[
-          SizedBox(
-            width: 10,
-          ),
-          InkWell(
-              onTap: () {
-                Navigator.pop(context);
-              },
-              child: Icon(
-                Typicons.arrow_left,
-                size: 25,
-                color: Theme.of(context).primaryColor,
-              )),
-          Container(
-            margin: EdgeInsets.symmetric(horizontal: 10, vertical: 35),
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Expanded(
+            child: InkWell(
+          onTap: () {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => WidgetSearch()));
+          },
+          child: Container(
+            margin: EdgeInsets.only(top: 10, left: 15, right: 15),
             height: MediaQuery.of(context).size.height * 0.08,
-            width: MediaQuery.of(context).size.width - 60,
+            // width: MediaQuery.of(context).size.width - 100,
             decoration: BoxDecoration(
                 color: Colors.white,
                 borderRadius: BorderRadius.circular(10),
@@ -68,30 +44,15 @@ class _SearchState extends State<Search> {
                     color: Theme.of(context).primaryColor,
                   ),
                 ),
-                Expanded(
-                  child: TextFormField(
-                    controller: _controller,
-                    autocorrect: true,
-                    autofocus: true,
-                    cursorColor: Theme.of(context).primaryColor,
-                    toolbarOptions: ToolbarOptions(
-                        copy: true, paste: true, cut: true, selectAll: true),
-                    decoration: InputDecoration(
-                      border: InputBorder.none,
-                      focusedBorder: InputBorder.none,
-                      enabledBorder: InputBorder.none,
-                      errorBorder: InputBorder.none,
-                      disabledBorder: InputBorder.none,
-                      hintText: 'Search products ...',
-                    ),
-                  ),
+                Text(
+                  'Find products',
+                  style: TextStyle(fontSize: 17, color: Colors.grey),
                 ),
-                close()
               ],
             ),
           ),
-        ],
-      ),
+        ))
+      ],
     );
   }
 }

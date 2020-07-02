@@ -9,8 +9,8 @@ void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
-        primaryColor: Color(0xff2ecc71),
-        accentColor: Color(0xffffffff),
+        primaryColor: Color(0xffc0392b),
+        accentColor: Color(0xffecf0f1),
         fontFamily: 'BalsamiqSans'),
     home: Splash(),
   ));
