@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:typicons_flutter/typicons_flutter.dart';
 
 class Category extends StatefulWidget {
   @override
@@ -41,525 +42,569 @@ class _CategoryState extends State<Category> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Container(
-        margin: EdgeInsets.symmetric(vertical: 50),
-        child: Column(
-          children: <Widget>[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+      body: Column(
+        children: <Widget>[
+          Padding(
+            padding: const EdgeInsets.only(left: 15, top: 44, right: 15),
+            child: Row(
               children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'vegetables',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            ),
-                            Text(
-                              '30-60% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
-                      ),
+                Expanded(
+                  child: Text(
+                    'Category',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontFamily: 'FredokaOne',
+                      letterSpacing: 0.5,
                     ),
-                  ],
+                  ),
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                Stack(
                   children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'fruits',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
-                            ),
-                            Text(
-                              '30-40% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
-                      ),
+                    Icon(
+                      Typicons.bell,
+                      size: 30,
                     ),
+                    Positioned(
+                      left: 0,
+                      top: 0,
+                      child: Container(
+                        height: 17,
+                        width: 17,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Theme.of(context).primaryColor,
+                            border: Border.all(width: 1, color: Colors.white)),
+                        child: Align(
+                            alignment: Alignment.center,
+                            child: Text(
+                              '2',
+                              style:
+                                  TextStyle(color: Colors.white, fontSize: 8),
+                            )),
+                      ),
+                    )
                   ],
-                ),
+                )
               ],
             ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'seeds, nuts',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'vegetables',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
                             ),
-                            Text(
-                              '10-40% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            '30-60% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'egg, fish, milk',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'fruits',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
                             ),
-                            Text(
-                              'less than 10% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            '30-40% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'seeds, nuts',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'seeds, nuts',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
                             ),
-                            Text(
-                              '10-40% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            '10-40% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'egg, fish, milk',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'egg, fish, milk',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
                             ),
-                            Text(
-                              'less than 10% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            'less than 10% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'seeds, nuts',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'seeds, nuts',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
                             ),
-                            Text(
-                              '10-40% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            '10-40% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'egg, fish, milk',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'egg, fish, milk',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
                             ),
-                            Text(
-                              'less than 10% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            'less than 10% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'seeds, nuts',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'seeds, nuts',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
                             ),
-                            Text(
-                              '10-40% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            '10-40% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'egg, fish, milk',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'egg, fish, milk',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
                             ),
-                            Text(
-                              'less than 10% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            'less than 10% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
-            SizedBox(
-              height: 15,
-            ),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'seeds, nuts',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'seeds, nuts',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
                             ),
-                            Text(
-                              '10-40% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            '10-40% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    InkWell(
-                      onTap: () {},
-                      child: Container(
-                        width: 150,
-                        height: 60,
-                        margin: EdgeInsets.symmetric(
-                          horizontal: 7,
-                        ),
-                        decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: BorderRadius.circular(10),
-                        ),
-                        child: Column(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: <Widget>[
-                            Text(
-                              'egg, fish, milk',
-                              style: TextStyle(
-                                fontSize: 20,
-                                fontFamily: 'BebasNeue',
-                                color: Theme.of(context).primaryColor,
-                              ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'egg, fish, milk',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
                             ),
-                            Text(
-                              'less than 10% of calories',
-                              style: TextStyle(
-                                  fontSize: 11,
-                                  fontFamily: 'FredokaOne',
-                                  color: Colors.black54),
-                            ),
-                          ],
-                        ),
+                          ),
+                          Text(
+                            'less than 10% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
                       ),
                     ),
-                  ],
-                ),
-              ],
-            ),
-          ],
-        ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+          SizedBox(
+            height: 15,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'seeds, nuts',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                          Text(
+                            '10-40% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  InkWell(
+                    onTap: () {},
+                    child: Container(
+                      width: 150,
+                      height: 60,
+                      margin: EdgeInsets.symmetric(
+                        horizontal: 7,
+                      ),
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(10),
+                      ),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          Text(
+                            'egg, fish, milk',
+                            style: TextStyle(
+                              fontSize: 20,
+                              fontFamily: 'BebasNeue',
+                              color: Theme.of(context).primaryColor,
+                            ),
+                          ),
+                          Text(
+                            'less than 10% of calories',
+                            style: TextStyle(
+                                fontSize: 11,
+                                fontFamily: 'FredokaOne',
+                                color: Colors.black54),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ],
       ),
     );
     // return Container(

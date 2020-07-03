@@ -2,17 +2,23 @@ import 'dart:async';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
+import 'package:marketplace/screen/bottomtabs/home.dart';
 import 'package:marketplace/screen/login.dart';
+import 'package:marketplace/screen/tabs.dart';
 
 void main() {
+  var now = DateTime.now();
+  print(DateFormat('hh:mm:ss').format(now));
+
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
     theme: ThemeData(
         primaryColor: Color(0xffc0392b),
         accentColor: Color(0xffecf0f1),
         fontFamily: 'BalsamiqSans'),
-    home: Splash(),
+    home: Tabs(),
   ));
 }
 
@@ -28,7 +34,7 @@ class _SplashState extends State<Splash> {
 
   changeScreen() async {
     Navigator.of(context).push(MaterialPageRoute(builder: (context) {
-      return Login();
+      return Tabs();
     }));
   }
 

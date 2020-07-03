@@ -70,7 +70,8 @@ class _WidgetSearchState extends State<WidgetSearch> {
                 ),
                 Expanded(
                   child: TextFormField(
-                    style: TextStyle(fontSize: 17, color: Colors.grey),
+                    style: TextStyle(fontSize: 17, color: Colors.black54),
+                    textInputAction: TextInputAction.search,
                     controller: _controller,
                     autocorrect: true,
                     autofocus: true,
@@ -83,7 +84,7 @@ class _WidgetSearchState extends State<WidgetSearch> {
                       enabledBorder: InputBorder.none,
                       errorBorder: InputBorder.none,
                       disabledBorder: InputBorder.none,
-                      hintText: 'Find products',
+                      hintText: 'Find a products',
                     ),
                   ),
                 ),

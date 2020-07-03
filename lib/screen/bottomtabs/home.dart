@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:marketplace/screen/widget/popular.dart';
+import 'package:intl/intl.dart';
+import 'package:marketplace/screen/widget/discount.dart';
 import 'package:marketplace/screen/widget/search.dart';
 import 'package:marketplace/screen/bottomtabs/category.dart';
 import 'package:marketplace/screen/widget/slider.dart';
@@ -14,7 +15,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
   String name = 'Steve';
   String time = 'morning';
-
   // var time = Moment().format('HH:mm:ss');
 
   // setState(() {
@@ -81,109 +81,136 @@ class _HomeState extends State<Home> {
           ),
           Search(),
           ImageSlider(),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 20),
-                child: Text(
-                  'Discounts',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontFamily: 'FredokaOne',
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.only(right: 20, top: 20),
-                child: Text(
-                  'see all',
-                  style: TextStyle(fontSize: 13, fontFamily: 'FredokaOne'),
-                ),
-              ),
-            ],
-          ),
-          Row(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              Padding(
-                padding: const EdgeInsets.only(left: 20, top: 5, bottom: 10),
-                child: Text(
-                  'ends in',
-                  style: TextStyle(fontSize: 13, fontFamily: 'FredokaOne'),
-                ),
-              ),
-              SizedBox(
-                width: 5,
-              ),
-              Container(
-                width: 23,
-                height: 23,
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                    borderRadius: BorderRadius.circular(5)),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    '01',
-                    style: TextStyle(fontSize: 12, color: Colors.white),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 2),
-                child: Text(
-                  ':',
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontFamily: 'FredokaOne',
-                      color: Theme.of(context).primaryColor),
-                ),
-              ),
-              Container(
-                width: 23,
-                height: 23,
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                    borderRadius: BorderRadius.circular(5)),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    '00',
-                    style: TextStyle(fontSize: 12, color: Colors.white),
-                  ),
-                ),
-              ),
-              Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 2),
-                child: Text(
-                  ':',
-                  style: TextStyle(
-                      fontSize: 15,
-                      fontFamily: 'FredokaOne',
-                      color: Theme.of(context).primaryColor),
-                ),
-              ),
-              Container(
-                width: 23,
-                height: 23,
-                decoration: BoxDecoration(
-                    color: Theme.of(context).primaryColor,
-                    borderRadius: BorderRadius.circular(5)),
-                child: Align(
-                  alignment: Alignment.center,
-                  child: Text(
-                    '00',
-                    style: TextStyle(fontSize: 12, color: Colors.white),
-                  ),
-                ),
-              ),
-            ],
-          ),
           Container(
-              margin: EdgeInsets.symmetric(vertical: 5),
-              color: Theme.of(context).primaryColor,
-              child: Popular())
+            height: 270,
+            width: MediaQuery.of(context).size.width,
+            decoration: BoxDecoration(
+                color: Theme.of(context).primaryColor,
+                borderRadius: BorderRadius.only(
+                    topRight: Radius.elliptical(150, 30),
+                    bottomLeft: Radius.elliptical(150, 30))),
+            child: Column(
+              children: <Widget>[
+                Padding(
+                  padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text(
+                        'Discounts',
+                        style: TextStyle(
+                            fontSize: 17,
+                            fontFamily: 'FredokaOne',
+                            color: Theme.of(context).accentColor),
+                      ),
+                      InkWell(
+                        onTap: () {},
+                        child: Text(
+                          'see all',
+                          style: TextStyle(
+                              fontSize: 13,
+                              fontFamily: 'FredokaOne',
+                              color: Theme.of(context).accentColor),
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+                Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Padding(
+                      padding:
+                          const EdgeInsets.only(left: 20, top: 5, bottom: 10),
+                      child: Text(
+                        'ends in',
+                        style: TextStyle(
+                            fontSize: 13,
+                            fontFamily: 'FredokaOne',
+                            color: Theme.of(context).accentColor),
+                      ),
+                    ),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Container(
+                      width: 23,
+                      height: 23,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).accentColor,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          '01',
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'FredokaOne',
+                              color: Theme.of(context).primaryColor),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      child: Text(
+                        ':',
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: 'FredokaOne',
+                            color: Theme.of(context).accentColor),
+                      ),
+                    ),
+                    Container(
+                      width: 23,
+                      height: 23,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).accentColor,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          '00',
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'FredokaOne',
+                              color: Theme.of(context).primaryColor),
+                        ),
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 2),
+                      child: Text(
+                        ':',
+                        style: TextStyle(
+                            fontSize: 15,
+                            fontFamily: 'FredokaOne',
+                            color: Theme.of(context).accentColor),
+                      ),
+                    ),
+                    Container(
+                      width: 23,
+                      height: 23,
+                      decoration: BoxDecoration(
+                          color: Theme.of(context).accentColor,
+                          borderRadius: BorderRadius.circular(5)),
+                      child: Align(
+                        alignment: Alignment.center,
+                        child: Text(
+                          '00',
+                          style: TextStyle(
+                              fontSize: 12,
+                              fontFamily: 'FredokaOne',
+                              color: Theme.of(context).primaryColor),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Popular()
+              ],
+            ),
+          ),
+          //
         ],
       ),
     );

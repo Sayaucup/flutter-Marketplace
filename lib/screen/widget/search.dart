@@ -45,7 +45,7 @@ class _SearchState extends State<Search> {
                   ),
                 ),
                 Text(
-                  'Find products',
+                  'Find a products',
                   style: TextStyle(fontSize: 17, color: Colors.grey),
                 ),
               ],
