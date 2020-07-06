@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:marketplace/screen/widget/category_item.dart';
 import 'package:marketplace/screen/widget/discount.dart';
+import 'package:marketplace/screen/widget/product.dart';
 import 'package:marketplace/screen/widget/search.dart';
 import 'package:marketplace/screen/bottomtabs/category.dart';
 import 'package:marketplace/screen/widget/slider.dart';
@@ -38,18 +39,25 @@ class _HomeState extends State<Home> {
       body: ListView(
         shrinkWrap: true,
         children: <Widget>[
+          //top
           Padding(
             padding: const EdgeInsets.only(left: 15, top: 20, right: 15),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                Text(
-                  'Good\ ${time},\ ${name}',
-                  style: TextStyle(
-                    fontSize: 17,
-                    fontFamily: 'FredokaOne',
-                    letterSpacing: 0.5,
+                Expanded(
+                  child: Text(
+                    'Good\ ${time},\ ${name}',
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontFamily: 'FredokaOne',
+                      letterSpacing: 0.5,
+                    ),
                   ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.symmetric(horizontal: 10),
+                  child: Icon(Typicons.chart_bar),
                 ),
                 Stack(
                   children: <Widget>[
@@ -81,114 +89,104 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
+          //search
           Search(),
-          ImageSlider(),
+          // ImageSlider(),
           SizedBox(
             height: 20,
           ),
-          // SizedBox(
-          //   height: 90,
-          //   child: ListView(
-          //     scrollDirection: Axis.horizontal,
-          //     shrinkWrap: true,
-          //     children: <Widget>[
-          //       Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: <Widget>[
-          //           CategoryItem(
-          //             icon: Typicons.th_large_outline,
-          //             size: 70,
-          //             margin: EdgeInsets.only(left: 10),
-          //             padding: EdgeInsets.all(10),
-          //             backgroundColor: Theme.of(context).primaryColor,
-          //           ),
-          //           Text('See all')
-          //         ],
-          //       ),
-          //       Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: <Widget>[
-          //           CategoryItem(
-          //             icon: EvaIcons.headphonesOutline,
-          //             size: 70,
-          //             margin: EdgeInsets.only(left: 10),
-          //             padding: EdgeInsets.all(10),
-          //             backgroundColor: Theme.of(context).primaryColor,
-          //           ),
-          //           Text('qwe')
-          //         ],
-          //       ),
-          //       Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: <Widget>[
-          //           CategoryItem(
-          //             icon: EvaIcons.hardDriveOutline,
-          //             size: 70,
-          //             margin: EdgeInsets.only(left: 10),
-          //             padding: EdgeInsets.all(10),
-          //             backgroundColor: Theme.of(context).primaryColor,
-          //           ),
-          //           Text('qwe')
-          //         ],
-          //       ),
-          //       Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: <Widget>[
-          //           CategoryItem(
-          //             icon: EvaIcons.printerOutline,
-          //             size: 70,
-          //             margin: EdgeInsets.only(left: 10),
-          //             padding: EdgeInsets.all(10),
-          //             backgroundColor: Theme.of(context).primaryColor,
-          //           ),
-          //           Text('qwe')
-          //         ],
-          //       ),
-          //       Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: <Widget>[
-          //           CategoryItem(
-          //             icon: EvaIcons.videoOutline,
-          //             size: 70,
-          //             margin: EdgeInsets.only(left: 10),
-          //             padding: EdgeInsets.all(10),
-          //             backgroundColor: Theme.of(context).primaryColor,
-          //           ),
-          //           Text('qwe')
-          //         ],
-          //       ),
-          //       Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: <Widget>[
-          //           CategoryItem(
-          //             icon: EvaIcons.umbrellaOutline,
-          //             size: 70,
-          //             margin: EdgeInsets.only(left: 10),
-          //             padding: EdgeInsets.all(10),
-          //             backgroundColor: Theme.of(context).primaryColor,
-          //           ),
-          //           Text('qwe')
-          //         ],
-          //       ),
-          //       Column(
-          //         mainAxisAlignment: MainAxisAlignment.center,
-          //         children: <Widget>[
-          //           CategoryItem(
-          //             icon: EvaIcons.tvOutline,
-          //             size: 70,
-          //             margin: EdgeInsets.symmetric(horizontal: 10),
-          //             padding: EdgeInsets.all(10),
-          //             backgroundColor: Theme.of(context).primaryColor,
-          //           ),
-          //           Text('qwe')
-          //         ],
-          //       ),
-          //     ],
-          //   ),
-          // ),
+          //category
+          SizedBox(
+            height: 90,
+            child: ListView(
+              scrollDirection: Axis.horizontal,
+              shrinkWrap: true,
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CategoryItem(
+                      icon: Typicons.th_large_outline,
+                      size: 70,
+                      margin: EdgeInsets.only(left: 15),
+                      padding: EdgeInsets.all(10),
+                      backgroundColor: Theme.of(context).primaryColor,
+                    ),
+                    Text('See all')
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CategoryItem(
+                      icon: Typicons.lightbulb,
+                      size: 70,
+                      margin: EdgeInsets.only(left: 10),
+                      padding: EdgeInsets.all(10),
+                      backgroundColor: Theme.of(context).primaryColor,
+                    ),
+                    Text('Electronic')
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CategoryItem(
+                      icon: EvaIcons.hardDriveOutline,
+                      size: 70,
+                      margin: EdgeInsets.only(left: 10),
+                      padding: EdgeInsets.all(10),
+                      backgroundColor: Theme.of(context).primaryColor,
+                    ),
+                    Text('qwe')
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CategoryItem(
+                      icon: EvaIcons.printerOutline,
+                      size: 70,
+                      margin: EdgeInsets.only(left: 10),
+                      padding: EdgeInsets.all(10),
+                      backgroundColor: Theme.of(context).primaryColor,
+                    ),
+                    Text('qwe')
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CategoryItem(
+                      icon: EvaIcons.videoOutline,
+                      size: 70,
+                      margin: EdgeInsets.only(left: 10),
+                      padding: EdgeInsets.all(10),
+                      backgroundColor: Theme.of(context).primaryColor,
+                    ),
+                    Text('qwe')
+                  ],
+                ),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    CategoryItem(
+                      icon: EvaIcons.umbrellaOutline,
+                      size: 70,
+                      margin: EdgeInsets.only(left: 10, right: 15),
+                      padding: EdgeInsets.all(10),
+                      backgroundColor: Theme.of(context).primaryColor,
+                    ),
+                    Text('qwe')
+                  ],
+                ),
+              ],
+            ),
+          ),
           SizedBox(
             height: 20,
           ),
+          //discount
           Container(
             height: 270,
             width: MediaQuery.of(context).size.width,
@@ -318,7 +316,19 @@ class _HomeState extends State<Home> {
               ],
             ),
           ),
-          //
+          //for you
+          Padding(
+            padding: const EdgeInsets.only(left: 15, top: 20),
+            child: Text(
+              'For you',
+              style: TextStyle(
+                fontSize: 17,
+                fontFamily: 'FredokaOne',
+                letterSpacing: 0.5,
+              ),
+            ),
+          ),
+          Product()
         ],
       ),
     );

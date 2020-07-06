@@ -14,15 +14,14 @@ class Tabs extends StatefulWidget {
 
 class _TabsState extends State<Tabs> {
   var _tabs = [
-    Category(),
-    News(),
     Home(),
+    Voucher(),
     Cart(),
     Account(),
   ];
   var controller = PageController();
 
-  int currentPage = 2;
+  int currentPage = 0;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,22 +39,15 @@ class _TabsState extends State<Tabs> {
         selectedItemColor: Theme.of(context).primaryColor,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
-              icon: Icon(Typicons.th_large_outline),
-              title: Text('Category',
-                  style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
+              icon: Icon(Octicons.home),
+              title: Text(
+                'Home',
+                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
+              )),
           BottomNavigationBarItem(
               icon: Icon(Typicons.tags),
               title: Text('Voucher',
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
-          BottomNavigationBarItem(
-              icon: Icon(
-                Octicons.arrow_small_left,
-                size: 1,
-              ),
-              title: Text(
-                '',
-                style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
-              )),
           BottomNavigationBarItem(
               icon: Icon(Typicons.shopping_cart),
               title: Text('Cart',
@@ -65,20 +57,6 @@ class _TabsState extends State<Tabs> {
               title: Text('User',
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
         ],
-      ),
-      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
-      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-      floatingActionButton: FloatingActionButton(
-        elevation: 10,
-        child: Icon(Octicons.home,
-            color: currentPage == 2
-                ? Theme.of(context).primaryColor
-                : Colors.black54),
-        onPressed: () {
-          setState(() {
-            currentPage = 2;
-          });
-        },
       ),
     );
   }

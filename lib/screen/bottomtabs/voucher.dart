@@ -3,12 +3,12 @@ import 'package:marketplace/screen/widget/search.dart';
 import 'package:marketplace/screen/widget/search_voucher.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 
-class News extends StatefulWidget {
+class Voucher extends StatefulWidget {
   @override
-  _NewsState createState() => _NewsState();
+  _VoucherState createState() => _VoucherState();
 }
 
-class _NewsState extends State<News> {
+class _VoucherState extends State<Voucher> {
   List voucherr = [
     'assets/img/voucher.png',
     'assets/img/voucher.png',

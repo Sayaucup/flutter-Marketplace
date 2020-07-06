@@ -13,11 +13,6 @@ class _LoginState extends State<Login> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  Future<void> _Login() async {
-    if (emailController.text == 'ucup@saya.com' &&
-        passwordController.text == 'ucup') {}
-  }
-
   void toast() {
     Fluttertoast.showToast(
         msg: "In Progress",
