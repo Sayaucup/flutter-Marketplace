@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
-class Popular extends StatefulWidget {
+class Discount extends StatefulWidget {
   @override
-  _PopularState createState() => _PopularState();
+  _DiscountState createState() => _DiscountState();
 }
 
-class _PopularState extends State<Popular> {
+class _DiscountState extends State<Discount> {
   @override
   Widget build(BuildContext context) {
     return Row(

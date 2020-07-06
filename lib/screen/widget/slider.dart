@@ -25,7 +25,7 @@ class _ImageSliderState extends State<ImageSlider> {
           CarouselSlider(
             autoPlayAnimationDuration: Duration(seconds: 3),
             autoPlayInterval: Duration(seconds: 10),
-            aspectRatio: 2,
+            aspectRatio: 3,
             enlargeCenterPage: true,
             autoPlay: true,
             onPageChanged: (index) {
@@ -54,7 +54,7 @@ class _ImageSliderState extends State<ImageSlider> {
                         child: Image(
                           image: AssetImage(e),
                           fit: BoxFit.cover,
-                          alignment: Alignment.topCenter,
+                          // alignment: Alignment.center,
                         ),
                       ),
                     ),

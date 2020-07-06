@@ -1,5 +1,7 @@
+import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+import 'package:marketplace/screen/widget/category_item.dart';
 import 'package:marketplace/screen/widget/discount.dart';
 import 'package:marketplace/screen/widget/search.dart';
 import 'package:marketplace/screen/bottomtabs/category.dart';
@@ -81,6 +83,112 @@ class _HomeState extends State<Home> {
           ),
           Search(),
           ImageSlider(),
+          SizedBox(
+            height: 20,
+          ),
+          // SizedBox(
+          //   height: 90,
+          //   child: ListView(
+          //     scrollDirection: Axis.horizontal,
+          //     shrinkWrap: true,
+          //     children: <Widget>[
+          //       Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: <Widget>[
+          //           CategoryItem(
+          //             icon: Typicons.th_large_outline,
+          //             size: 70,
+          //             margin: EdgeInsets.only(left: 10),
+          //             padding: EdgeInsets.all(10),
+          //             backgroundColor: Theme.of(context).primaryColor,
+          //           ),
+          //           Text('See all')
+          //         ],
+          //       ),
+          //       Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: <Widget>[
+          //           CategoryItem(
+          //             icon: EvaIcons.headphonesOutline,
+          //             size: 70,
+          //             margin: EdgeInsets.only(left: 10),
+          //             padding: EdgeInsets.all(10),
+          //             backgroundColor: Theme.of(context).primaryColor,
+          //           ),
+          //           Text('qwe')
+          //         ],
+          //       ),
+          //       Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: <Widget>[
+          //           CategoryItem(
+          //             icon: EvaIcons.hardDriveOutline,
+          //             size: 70,
+          //             margin: EdgeInsets.only(left: 10),
+          //             padding: EdgeInsets.all(10),
+          //             backgroundColor: Theme.of(context).primaryColor,
+          //           ),
+          //           Text('qwe')
+          //         ],
+          //       ),
+          //       Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: <Widget>[
+          //           CategoryItem(
+          //             icon: EvaIcons.printerOutline,
+          //             size: 70,
+          //             margin: EdgeInsets.only(left: 10),
+          //             padding: EdgeInsets.all(10),
+          //             backgroundColor: Theme.of(context).primaryColor,
+          //           ),
+          //           Text('qwe')
+          //         ],
+          //       ),
+          //       Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: <Widget>[
+          //           CategoryItem(
+          //             icon: EvaIcons.videoOutline,
+          //             size: 70,
+          //             margin: EdgeInsets.only(left: 10),
+          //             padding: EdgeInsets.all(10),
+          //             backgroundColor: Theme.of(context).primaryColor,
+          //           ),
+          //           Text('qwe')
+          //         ],
+          //       ),
+          //       Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: <Widget>[
+          //           CategoryItem(
+          //             icon: EvaIcons.umbrellaOutline,
+          //             size: 70,
+          //             margin: EdgeInsets.only(left: 10),
+          //             padding: EdgeInsets.all(10),
+          //             backgroundColor: Theme.of(context).primaryColor,
+          //           ),
+          //           Text('qwe')
+          //         ],
+          //       ),
+          //       Column(
+          //         mainAxisAlignment: MainAxisAlignment.center,
+          //         children: <Widget>[
+          //           CategoryItem(
+          //             icon: EvaIcons.tvOutline,
+          //             size: 70,
+          //             margin: EdgeInsets.symmetric(horizontal: 10),
+          //             padding: EdgeInsets.all(10),
+          //             backgroundColor: Theme.of(context).primaryColor,
+          //           ),
+          //           Text('qwe')
+          //         ],
+          //       ),
+          //     ],
+          //   ),
+          // ),
+          SizedBox(
+            height: 20,
+          ),
           Container(
             height: 270,
             width: MediaQuery.of(context).size.width,
@@ -206,7 +314,7 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-                Popular()
+                Discount()
               ],
             ),
           ),

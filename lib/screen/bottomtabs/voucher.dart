@@ -9,6 +9,13 @@ class News extends StatefulWidget {
 }
 
 class _NewsState extends State<News> {
+  List voucherr = [
+    'assets/img/voucher.png',
+    'assets/img/voucher.png',
+    'assets/img/voucher.png',
+    'assets/img/voucher.png',
+    'assets/img/voucher.png'
+  ];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -60,7 +67,23 @@ class _NewsState extends State<News> {
               ],
             ),
           ),
-          SearchVoucher()
+          SearchVoucher(),
+          Column(
+            children: voucherr.map((e) {
+              return Container(
+                margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                height: 100,
+                width: MediaQuery.of(context).size.width,
+                child: ClipRRect(
+                  borderRadius: BorderRadius.circular(10),
+                  child: Image(
+                    image: AssetImage(e),
+                    fit: BoxFit.cover,
+                  ),
+                ),
+              );
+            }).toList(),
+          )
         ],
       ),
     );

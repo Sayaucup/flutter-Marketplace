@@ -48,9 +48,12 @@ class _TabsState extends State<Tabs> {
               title: Text('Voucher',
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
           BottomNavigationBarItem(
-              icon: Icon(Octicons.home),
+              icon: Icon(
+                Octicons.arrow_small_left,
+                size: 1,
+              ),
               title: Text(
-                'Home',
+                '',
                 style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold),
               )),
           BottomNavigationBarItem(
@@ -62,6 +65,20 @@ class _TabsState extends State<Tabs> {
               title: Text('User',
                   style: TextStyle(fontSize: 10, fontWeight: FontWeight.bold))),
         ],
+      ),
+      floatingActionButtonAnimator: FloatingActionButtonAnimator.scaling,
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      floatingActionButton: FloatingActionButton(
+        elevation: 10,
+        child: Icon(Octicons.home,
+            color: currentPage == 2
+                ? Theme.of(context).primaryColor
+                : Colors.black54),
+        onPressed: () {
+          setState(() {
+            currentPage = 2;
+          });
+        },
       ),
     );
   }
