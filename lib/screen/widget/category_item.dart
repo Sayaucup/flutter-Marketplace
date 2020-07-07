@@ -29,9 +29,18 @@ class CategoryItem extends StatelessWidget {
       ),
       padding: padding,
       margin: margin,
-      child: Icon(
-        icon,
-        color: iconColor,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: <Widget>[
+          Icon(
+            icon,
+            color: iconColor,
+          ),
+          Text('qwe',
+              style: TextStyle(
+                color: Colors.white,
+              ))
+        ],
       ),
     );
   }

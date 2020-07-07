@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:typicons_flutter/typicons_flutter.dart';
 
 class Register extends StatefulWidget {
   @override
@@ -10,7 +11,11 @@ class _RegisterState extends State<Register> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Theme.of(context).accentColor,
-      appBar: AppBar(),
+      appBar: AppBar(
+          leading: IconButton(
+        icon: Icon(Typicons.arrow_left),
+        onPressed: () => Navigator.of(context).pop(),
+      )),
       body: ListView(
         shrinkWrap: true,
         children: <Widget>[

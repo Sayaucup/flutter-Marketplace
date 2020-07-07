@@ -1,9 +1,13 @@
 import 'package:eva_icons_flutter/eva_icons_flutter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_icons/flutter_icons.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
+import 'package:line_icons/line_icons.dart';
 import 'package:marketplace/screen/widget/category_item.dart';
 import 'package:marketplace/screen/widget/discount.dart';
-import 'package:marketplace/screen/widget/product.dart';
+import 'package:marketplace/screen/widget/foryou.dart';
+import 'package:marketplace/screen/widget/popular.dart';
 import 'package:marketplace/screen/widget/search.dart';
 import 'package:marketplace/screen/bottomtabs/category.dart';
 import 'package:marketplace/screen/widget/slider.dart';
@@ -31,6 +35,16 @@ class _HomeState extends State<Home> {
   //     Text('Night');
   //   }
   // });
+  void toast() {
+    Fluttertoast.showToast(
+        msg: "In Progress",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Theme.of(context).primaryColor,
+        textColor: Colors.white,
+        fontSize: 15);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -55,18 +69,19 @@ class _HomeState extends State<Home> {
                     ),
                   ),
                 ),
-                Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 10),
-                  child: Icon(Typicons.chart_bar),
-                ),
                 Stack(
                   children: <Widget>[
-                    Icon(
-                      Typicons.bell,
-                      size: 30,
+                    InkWell(
+                      onTap: () {
+                        toast();
+                      },
+                      child: Icon(
+                        Typicons.bell,
+                        size: 30,
+                      ),
                     ),
                     Positioned(
-                      left: 0,
+                      right: 0,
                       top: 0,
                       child: Container(
                         height: 17,
@@ -97,88 +112,52 @@ class _HomeState extends State<Home> {
           ),
           //category
           SizedBox(
-            height: 90,
+            height: 70,
             child: ListView(
               scrollDirection: Axis.horizontal,
               shrinkWrap: true,
               children: <Widget>[
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CategoryItem(
-                      icon: Typicons.th_large_outline,
-                      size: 70,
-                      margin: EdgeInsets.only(left: 15),
-                      padding: EdgeInsets.all(10),
-                      backgroundColor: Theme.of(context).primaryColor,
-                    ),
-                    Text('See all')
-                  ],
+                CategoryItem(
+                  icon: Typicons.th_large_outline,
+                  size: 70,
+                  margin: EdgeInsets.only(left: 15),
+                  padding: EdgeInsets.all(10),
+                  backgroundColor: Theme.of(context).primaryColor,
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CategoryItem(
-                      icon: Typicons.lightbulb,
-                      size: 70,
-                      margin: EdgeInsets.only(left: 10),
-                      padding: EdgeInsets.all(10),
-                      backgroundColor: Theme.of(context).primaryColor,
-                    ),
-                    Text('Electronic')
-                  ],
+                CategoryItem(
+                  icon: Typicons.lightbulb,
+                  size: 70,
+                  margin: EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.all(10),
+                  backgroundColor: Theme.of(context).primaryColor,
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CategoryItem(
-                      icon: EvaIcons.hardDriveOutline,
-                      size: 70,
-                      margin: EdgeInsets.only(left: 10),
-                      padding: EdgeInsets.all(10),
-                      backgroundColor: Theme.of(context).primaryColor,
-                    ),
-                    Text('qwe')
-                  ],
+                CategoryItem(
+                  icon: EvaIcons.hardDriveOutline,
+                  size: 70,
+                  margin: EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.all(10),
+                  backgroundColor: Theme.of(context).primaryColor,
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CategoryItem(
-                      icon: EvaIcons.printerOutline,
-                      size: 70,
-                      margin: EdgeInsets.only(left: 10),
-                      padding: EdgeInsets.all(10),
-                      backgroundColor: Theme.of(context).primaryColor,
-                    ),
-                    Text('qwe')
-                  ],
+                CategoryItem(
+                  icon: EvaIcons.printerOutline,
+                  size: 70,
+                  margin: EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.all(10),
+                  backgroundColor: Theme.of(context).primaryColor,
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CategoryItem(
-                      icon: EvaIcons.videoOutline,
-                      size: 70,
-                      margin: EdgeInsets.only(left: 10),
-                      padding: EdgeInsets.all(10),
-                      backgroundColor: Theme.of(context).primaryColor,
-                    ),
-                    Text('qwe')
-                  ],
+                CategoryItem(
+                  icon: EvaIcons.videoOutline,
+                  size: 70,
+                  margin: EdgeInsets.only(left: 10),
+                  padding: EdgeInsets.all(10),
+                  backgroundColor: Theme.of(context).primaryColor,
                 ),
-                Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    CategoryItem(
-                      icon: EvaIcons.umbrellaOutline,
-                      size: 70,
-                      margin: EdgeInsets.only(left: 10, right: 15),
-                      padding: EdgeInsets.all(10),
-                      backgroundColor: Theme.of(context).primaryColor,
-                    ),
-                    Text('qwe')
-                  ],
+                CategoryItem(
+                  icon: EvaIcons.umbrellaOutline,
+                  size: 70,
+                  margin: EdgeInsets.only(left: 10, right: 15),
+                  padding: EdgeInsets.all(10),
+                  backgroundColor: Theme.of(context).primaryColor,
                 ),
               ],
             ),
@@ -188,17 +167,15 @@ class _HomeState extends State<Home> {
           ),
           //discount
           Container(
-            height: 270,
+            height: 350,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
-                borderRadius: BorderRadius.only(
-                    topRight: Radius.elliptical(150, 30),
-                    bottomLeft: Radius.elliptical(150, 30))),
+                borderRadius: BorderRadius.circular(20)),
             child: Column(
               children: <Widget>[
                 Padding(
-                  padding: const EdgeInsets.only(left: 20, top: 20, right: 20),
+                  padding: const EdgeInsets.only(left: 15, top: 20, right: 15),
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
@@ -210,7 +187,9 @@ class _HomeState extends State<Home> {
                             color: Theme.of(context).accentColor),
                       ),
                       InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          toast();
+                        },
                         child: Text(
                           'see all',
                           style: TextStyle(
@@ -227,7 +206,7 @@ class _HomeState extends State<Home> {
                   children: <Widget>[
                     Padding(
                       padding:
-                          const EdgeInsets.only(left: 20, top: 5, bottom: 10),
+                          const EdgeInsets.only(left: 15, top: 5, bottom: 10),
                       child: Text(
                         'ends in',
                         style: TextStyle(
@@ -312,11 +291,40 @@ class _HomeState extends State<Home> {
                     ),
                   ],
                 ),
-                Discount()
+                Padding(
+                  padding: const EdgeInsets.only(top: 5),
+                  child: Discount(),
+                )
               ],
             ),
           ),
           //for you
+          Padding(
+            padding: const EdgeInsets.only(left: 15, top: 20, right: 15),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: <Widget>[
+                Text(
+                  'Popular food',
+                  style: TextStyle(
+                    fontSize: 17,
+                    fontFamily: 'FredokaOne',
+                    letterSpacing: 0.5,
+                  ),
+                ),
+                InkWell(
+                  onTap: () {
+                    toast();
+                  },
+                  child: Text(
+                    'see all',
+                    style: TextStyle(fontSize: 13, fontFamily: 'FredokaOne'),
+                  ),
+                ),
+              ],
+            ),
+          ),
+          Popular(),
           Padding(
             padding: const EdgeInsets.only(left: 15, top: 20),
             child: Text(
