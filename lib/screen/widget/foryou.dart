@@ -14,26 +14,30 @@ class _ProductState extends State<Product> {
         "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
         "Burger",
         '100.000',
-        'Jakarta',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '3',
+        '424'),
     Item(
         "https://images.pexels.com/photos/357573/pexels-photo-357573.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
         "Cake",
         '100.000',
-        'Jakarta',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '4.2',
+        '852'),
     Item(
         "https://images.pexels.com/photos/2396220/pexels-photo-2396220.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
         "Coffee",
         '100.000',
-        'Jakarta',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '3.2',
+        '742'),
     Item(
         "https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
         "Salad",
         '100.000',
-        'Jakarta',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '4.1',
+        '721'),
   ];
   void toast() {
     Fluttertoast.showToast(
@@ -100,17 +104,27 @@ class _ProductState extends State<Product> {
                           'Rp.${items.price}',
                           style: TextStyle(fontWeight: FontWeight.bold),
                         ),
-                        Text(items.address),
                         Row(
                           children: <Widget>[
                             items.rating,
-                            items.rating,
-                            items.rating,
-                            items.rating,
-                            Icon(Icons.star_half,
-                                size: 15, color: Color(0xfff1c40f)),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 3),
+                              child: Text(
+                                items.rating2,
+                                style: TextStyle(
+                                  fontFamily: 'FredokaOne',
+                                  fontSize: 13,
+                                ),
+                              ),
+                            ),
+                            Text('(${items.review})',
+                                style: TextStyle(
+                                  fontFamily: 'FredokaOne',
+                                  fontSize: 13,
+                                ))
                           ],
-                        )
+                        ),
                       ],
                     ),
                   )

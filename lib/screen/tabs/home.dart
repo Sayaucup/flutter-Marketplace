@@ -4,15 +4,15 @@ import 'package:flutter_icons/flutter_icons.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:intl/intl.dart';
 import 'package:line_icons/line_icons.dart';
-import 'package:marketplace/screen/widget/category_item.dart';
+import 'package:marketplace/screen/widget/category.dart';
 import 'package:marketplace/screen/widget/discount.dart';
 import 'package:marketplace/screen/widget/foryou.dart';
 import 'package:marketplace/screen/widget/popular.dart';
 import 'package:marketplace/screen/widget/search.dart';
-import 'package:marketplace/screen/bottomtabs/category.dart';
 import 'package:marketplace/screen/widget/slider.dart';
 import 'package:moment/moment.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
+import 'dart:async';
 
 class Home extends StatefulWidget {
   @override
@@ -20,8 +20,15 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  String name = 'Steve';
-  String time = 'morning';
+  static const duration = const Duration(seconds: 1);
+  int secondPassed = 3600;
+  Timer timer;
+
+  void handleTick() {
+    setState(() {
+      secondPassed = secondPassed - 1;
+    });
+  }
   // var time = Moment().format('HH:mm:ss');
 
   // setState(() {
@@ -48,6 +55,14 @@ class _HomeState extends State<Home> {
 
   @override
   Widget build(BuildContext context) {
+    if (timer == null) {
+      timer = Timer.periodic(duration, (Timer t) {
+        handleTick();
+      });
+    }
+    int seconds = secondPassed % 60;
+    int minutes = secondPassed ~/ 60;
+    int hours = secondPassed ~/ (60 * 60);
     return Scaffold(
       backgroundColor: Theme.of(context).accentColor,
       body: ListView(
@@ -61,7 +76,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Expanded(
                   child: Text(
-                    'Good\ ${time},\ ${name}',
+                    'Good morning, Steve',
                     style: TextStyle(
                       fontSize: 17,
                       fontFamily: 'FredokaOne',
@@ -72,9 +87,7 @@ class _HomeState extends State<Home> {
                 Stack(
                   children: <Widget>[
                     InkWell(
-                      onTap: () {
-                        toast();
-                      },
+                      onTap: () {},
                       child: Icon(
                         Typicons.bell,
                         size: 30,
@@ -111,63 +124,13 @@ class _HomeState extends State<Home> {
             height: 20,
           ),
           //category
-          SizedBox(
-            height: 70,
-            child: ListView(
-              scrollDirection: Axis.horizontal,
-              shrinkWrap: true,
-              children: <Widget>[
-                CategoryItem(
-                  icon: Typicons.th_large_outline,
-                  size: 70,
-                  margin: EdgeInsets.only(left: 15),
-                  padding: EdgeInsets.all(10),
-                  backgroundColor: Theme.of(context).primaryColor,
-                ),
-                CategoryItem(
-                  icon: Typicons.lightbulb,
-                  size: 70,
-                  margin: EdgeInsets.only(left: 10),
-                  padding: EdgeInsets.all(10),
-                  backgroundColor: Theme.of(context).primaryColor,
-                ),
-                CategoryItem(
-                  icon: EvaIcons.hardDriveOutline,
-                  size: 70,
-                  margin: EdgeInsets.only(left: 10),
-                  padding: EdgeInsets.all(10),
-                  backgroundColor: Theme.of(context).primaryColor,
-                ),
-                CategoryItem(
-                  icon: EvaIcons.printerOutline,
-                  size: 70,
-                  margin: EdgeInsets.only(left: 10),
-                  padding: EdgeInsets.all(10),
-                  backgroundColor: Theme.of(context).primaryColor,
-                ),
-                CategoryItem(
-                  icon: EvaIcons.videoOutline,
-                  size: 70,
-                  margin: EdgeInsets.only(left: 10),
-                  padding: EdgeInsets.all(10),
-                  backgroundColor: Theme.of(context).primaryColor,
-                ),
-                CategoryItem(
-                  icon: EvaIcons.umbrellaOutline,
-                  size: 70,
-                  margin: EdgeInsets.only(left: 10, right: 15),
-                  padding: EdgeInsets.all(10),
-                  backgroundColor: Theme.of(context).primaryColor,
-                ),
-              ],
-            ),
-          ),
+          Container(height: 100, child: Category()),
           SizedBox(
             height: 20,
           ),
           //discount
           Container(
-            height: 350,
+            height: 365,
             width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 color: Theme.of(context).primaryColor,
@@ -227,7 +190,7 @@ class _HomeState extends State<Home> {
                       child: Align(
                         alignment: Alignment.center,
                         child: Text(
-                          '01',
+                          hours.toString().padLeft(2, '0'),
                           style: TextStyle(
                               fontSize: 12,
                               fontFamily: 'FredokaOne',
@@ -254,7 +217,7 @@ class _HomeState extends State<Home> {
                       child: Align(
                         alignment: Alignment.center,
                         child: Text(
-                          '00',
+                          minutes.toString().padLeft(2, '0'),
                           style: TextStyle(
                               fontSize: 12,
                               fontFamily: 'FredokaOne',
@@ -281,7 +244,7 @@ class _HomeState extends State<Home> {
                       child: Align(
                         alignment: Alignment.center,
                         child: Text(
-                          '00',
+                          seconds.toString().padLeft(2, '0'),
                           style: TextStyle(
                               fontSize: 12,
                               fontFamily: 'FredokaOne',
@@ -338,6 +301,15 @@ class _HomeState extends State<Home> {
           ),
           Product()
         ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          toast();
+        },
+        child: Icon(
+          Typicons.chart_area,
+          color: Theme.of(context).primaryColor,
+        ),
       ),
     );
   }

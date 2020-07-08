@@ -11,29 +11,33 @@ class Discount extends StatefulWidget {
 class _DiscountState extends State<Discount> {
   var discount = [
     Item(
+        'https://images.pexels.com/photos/1437629/pexels-photo-1437629.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        'Juice',
+        '70.000',
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '5',
+        '231'),
+    Item(
         'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Pizza',
         '70.000',
-        'Kretek',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '3',
+        '123'),
     Item(
         'https://images.pexels.com/photos/1998635/pexels-photo-1998635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Baked pastry',
         '70.000',
-        'Bantul',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '2.1',
+        '213'),
     Item(
         'https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Barbecue',
         '70.000',
-        'Yogya',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
-    Item(
-        'https://images.pexels.com/photos/1437629/pexels-photo-1437629.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        'Juice',
-        '70.000',
-        'Giwangan',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '3.9',
+        '412'),
   ];
   void toast() {
     Fluttertoast.showToast(
@@ -51,7 +55,7 @@ class _DiscountState extends State<Discount> {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       width: MediaQuery.of(context).size.width,
-      height: 250,
+      height: 265,
       child: ListView(
         physics: ScrollPhysics(),
         shrinkWrap: true,
@@ -131,21 +135,28 @@ class _DiscountState extends State<Discount> {
                             style: TextStyle(
                                 fontWeight: FontWeight.bold,
                                 color: Theme.of(context).accentColor)),
-                        Text(
-                          items.address,
-                          style:
-                              TextStyle(color: Theme.of(context).accentColor),
-                        ),
                         Row(
                           children: <Widget>[
                             items.rating,
-                            items.rating,
-                            items.rating,
-                            items.rating,
-                            Icon(Icons.star_half,
-                                size: 15, color: Color(0xfff1c40f)),
+                            Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 3),
+                              child: Text(
+                                items.rating2,
+                                style: TextStyle(
+                                    fontFamily: 'FredokaOne',
+                                    fontSize: 13,
+                                    color: Theme.of(context).accentColor),
+                              ),
+                            ),
+                            Text('(${items.review})',
+                                style: TextStyle(
+                                  color: Theme.of(context).accentColor,
+                                  fontFamily: 'FredokaOne',
+                                  fontSize: 13,
+                                ))
                           ],
-                        )
+                        ),
                       ],
                     ),
                   ),

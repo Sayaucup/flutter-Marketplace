@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_icons/flutter_icons.dart';
-import 'package:marketplace/screen/bottomtabs/account.dart';
-import 'package:marketplace/screen/bottomtabs/cart.dart';
-import 'package:marketplace/screen/bottomtabs/home.dart';
-import 'package:marketplace/screen/bottomtabs/voucher.dart';
-import 'package:marketplace/screen/bottomtabs/category.dart';
+import 'package:marketplace/screen/tabs/account.dart';
+import 'package:marketplace/screen/tabs/cart.dart';
+import 'package:marketplace/screen/tabs/home.dart';
+import 'package:marketplace/screen/tabs/voucher.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 
 class Tabs extends StatefulWidget {

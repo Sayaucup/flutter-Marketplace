@@ -15,27 +15,30 @@ class _PopularState extends State<Popular> {
         'https://images.pexels.com/photos/3535383/pexels-photo-3535383.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Steak and fries',
         '100.000',
-        'Jakarta',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '3',
+        '342'),
     Item(
         'https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         'hamburger and fries',
         '100.000',
-        'Jakarta',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '2',
+        '216'),
     Item(
         'https://images.pexels.com/photos/704569/pexels-photo-704569.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Cooked food',
         '100.000',
-        'Jakarta',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '4',
+        '219'),
   ];
   @override
   Widget build(BuildContext context) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       width: MediaQuery.of(context).size.width,
-      height: 222,
+      height: 230,
       child: ListView(
         physics: ScrollPhysics(),
         shrinkWrap: true,
@@ -77,17 +80,26 @@ class _PopularState extends State<Popular> {
                         'Rp.${items.price}',
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
-                      Text(items.address),
                       Row(
                         children: <Widget>[
                           items.rating,
-                          items.rating,
-                          items.rating,
-                          items.rating,
-                          Icon(Icons.star_half,
-                              size: 15, color: Color(0xfff1c40f)),
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 3),
+                            child: Text(
+                              items.rating2,
+                              style: TextStyle(
+                                fontFamily: 'FredokaOne',
+                                fontSize: 13,
+                              ),
+                            ),
+                          ),
+                          Text('(${items.review})',
+                              style: TextStyle(
+                                fontFamily: 'FredokaOne',
+                                fontSize: 13,
+                              ))
                         ],
-                      )
+                      ),
                     ],
                   ),
                 ),

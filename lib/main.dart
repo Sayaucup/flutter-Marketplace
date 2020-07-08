@@ -4,8 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
 import 'package:lottie/lottie.dart';
-import 'package:marketplace/screen/bottomtabs/home.dart';
-import 'package:marketplace/screen/login.dart';
 import 'package:marketplace/screen/tabs.dart';
 
 void main() {
@@ -13,13 +11,12 @@ void main() {
   print(DateFormat('hh:mm:ss').format(now));
 
   runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-        primaryColor: Color(0xffc0392b),
-        accentColor: Color(0xffecf0f1),
-        fontFamily: 'BalsamiqSans'),
-    home: Tabs(),
-  ));
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+          primaryColor: Color(0xffc0392b),
+          accentColor: Color(0xffecf0f1),
+          fontFamily: 'BalsamiqSans'),
+      home: Tabs()));
 }
 
 class Splash extends StatefulWidget {
