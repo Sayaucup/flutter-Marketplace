@@ -3,6 +3,9 @@ import 'package:marketplace/screen/widget/food_item.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
 
 class Cart extends StatefulWidget {
+  final Item items;
+
+  const Cart({Key key, this.items}) : super(key: key);
   @override
   _CartState createState() => _CartState();
 }
@@ -11,48 +14,32 @@ class Cartt {
   final String image;
   final String name;
   final String price;
-  final String total;
   final String address;
   final Icon rating;
 
-  Cartt(
-      this.image, this.name, this.price, this.total, this.address, this.rating);
+  Cartt(this.image, this.name, this.price, this.address, this.rating);
 }
 
 class _CartState extends State<Cart> {
   int i = 1;
-  void ii() {
-    setState(() {
-      i++;
-    });
-  }
-
-  void iii() {
-    setState(() {
-      i--;
-    });
-  }
 
   var cart = [
     Cartt(
         'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Pizza',
         '70.000',
-        '1',
         'Kretek',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
     Cartt(
         'https://images.pexels.com/photos/1998635/pexels-photo-1998635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Baked pastry',
         '70.000',
-        '1',
         'Bantul',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
     Cartt(
         'https://images.pexels.com/photos/1437629/pexels-photo-1437629.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
         'Juice',
         '70.000',
-        '1',
         'Giwangan',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f))),
   ];
@@ -63,9 +50,10 @@ class _CartState extends State<Cart> {
       body: Column(
         children: <Widget>[
           Container(
-            height: 70,
+            height: 80,
             child: Padding(
-              padding: const EdgeInsets.only(left: 15, top: 44, right: 15),
+              padding: const EdgeInsets.only(
+                  left: 15, top: 38, right: 15, bottom: 0),
               child: Row(
                 children: <Widget>[
                   Expanded(
@@ -85,7 +73,7 @@ class _CartState extends State<Cart> {
                         size: 30,
                       ),
                       Positioned(
-                        left: 0,
+                        right: 0,
                         top: 0,
                         child: Container(
                           height: 17,
@@ -164,7 +152,9 @@ class _CartState extends State<Cart> {
                           ),
                           IconButton(
                             onPressed: () {
-                              iii();
+                              setState(() {
+                                i--;
+                              });
                             },
                             icon: Icon(Typicons.minus,
                                 color: Theme.of(context).primaryColor),
@@ -176,7 +166,9 @@ class _CartState extends State<Cart> {
                           ),
                           IconButton(
                             onPressed: () {
-                              ii();
+                              setState(() {
+                                i++;
+                              });
                             },
                             icon: Icon(Typicons.plus,
                                 color: Theme.of(context).primaryColor),

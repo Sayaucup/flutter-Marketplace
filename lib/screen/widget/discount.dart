@@ -11,18 +11,18 @@ class Discount extends StatefulWidget {
 class _DiscountState extends State<Discount> {
   var discount = [
     Item(
-        'https://images.pexels.com/photos/1437629/pexels-photo-1437629.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-        'Juice',
+        "https://images.pexels.com/photos/4109234/pexels-photo-4109234.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "French fries",
         '70.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '5',
-        '231'),
+        '721'),
     Item(
         'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Pizza',
         '70.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
-        '3',
+        '3.7',
         '123'),
     Item(
         'https://images.pexels.com/photos/1998635/pexels-photo-1998635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',

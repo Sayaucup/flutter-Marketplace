@@ -11,29 +11,29 @@ class Soup extends StatefulWidget {
 class _SoupState extends State<Soup> {
   var items = [
     Item(
-        "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Burger",
+        "https://images.pexels.com/photos/539451/pexels-photo-539451.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "Brown soup",
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '3',
         '424'),
     Item(
-        "https://images.pexels.com/photos/357573/pexels-photo-357573.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Cake",
+        "https://images.pexels.com/photos/1437590/pexels-photo-1437590.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "Shrimp soup",
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '4.2',
         '852'),
     Item(
-        "https://images.pexels.com/photos/2396220/pexels-photo-2396220.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Coffee",
+        "https://images.pexels.com/photos/1618888/pexels-photo-1618888.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "Soup with minced herb",
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '3.2',
         '742'),
     Item(
-        "https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Salad",
+        "https://images.pexels.com/photos/691159/pexels-photo-691159.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "Pumpkin",
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '4.1',
@@ -105,6 +105,7 @@ class _SoupState extends State<Soup> {
                           children: <Widget>[
                             Text(
                               items.name,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Theme.of(context).primaryColor),

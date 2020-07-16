@@ -18,22 +18,22 @@ class _FastfoodState extends State<Fastfood> {
         '3',
         '424'),
     Item(
-        "https://images.pexels.com/photos/357573/pexels-photo-357573.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Cake",
+        'https://images.pexels.com/photos/2983101/pexels-photo-2983101.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
+        'hamburger and fries',
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
-        '4.2',
-        '852'),
+        '2',
+        '216'),
     Item(
-        "https://images.pexels.com/photos/2396220/pexels-photo-2396220.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Coffee",
-        '100.000',
+        'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
+        'Pizza',
+        '70.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
-        '3.2',
-        '742'),
+        '3',
+        '123'),
     Item(
-        "https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Salad",
+        "https://images.pexels.com/photos/4109234/pexels-photo-4109234.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "French fries",
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '4.1',
@@ -105,6 +105,7 @@ class _FastfoodState extends State<Fastfood> {
                           children: <Widget>[
                             Text(
                               items.name,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Theme.of(context).primaryColor),

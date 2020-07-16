@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 import 'package:marketplace/screen/widget/search.dart';
 import 'package:marketplace/screen/widget/search_voucher.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
@@ -16,6 +17,17 @@ class _VoucherState extends State<Voucher> {
     'assets/img/voucher.png',
     'assets/img/voucher.png'
   ];
+  void toast() {
+    Fluttertoast.showToast(
+        msg: "successfully copied",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Theme.of(context).primaryColor,
+        textColor: Colors.white,
+        fontSize: 15);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -43,7 +55,7 @@ class _VoucherState extends State<Voucher> {
                         size: 30,
                       ),
                       Positioned(
-                        left: 0,
+                        right: 0,
                         top: 0,
                         child: Container(
                           height: 17,
@@ -69,22 +81,27 @@ class _VoucherState extends State<Voucher> {
             ),
             SearchVoucher(),
             Container(
-              height: MediaQuery.of(context).size.height - 200,
+              height: MediaQuery.of(context).size.height - 202,
               child: ListView(
                 shrinkWrap: true,
                 children: <Widget>[
                   Column(
                     children: voucherr.map((e) {
-                      return Container(
-                        margin:
-                            EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                        height: 100,
-                        width: MediaQuery.of(context).size.width,
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(10),
-                          child: Image(
-                            image: AssetImage(e),
-                            fit: BoxFit.cover,
+                      return InkWell(
+                        onLongPress: () {
+                          toast();
+                        },
+                        child: Container(
+                          margin:
+                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+                          height: 100,
+                          width: MediaQuery.of(context).size.width,
+                          child: ClipRRect(
+                            borderRadius: BorderRadius.circular(10),
+                            child: Image(
+                              image: AssetImage(e),
+                              fit: BoxFit.cover,
+                            ),
                           ),
                         ),
                       );

@@ -11,29 +11,29 @@ class Icecream extends StatefulWidget {
 class _IcecreamState extends State<Icecream> {
   var items = [
     Item(
-        "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Burger",
+        "https://images.pexels.com/photos/1294943/pexels-photo-1294943.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "Cream ice",
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '3',
         '424'),
     Item(
-        "https://images.pexels.com/photos/357573/pexels-photo-357573.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Cake",
+        "https://images.pexels.com/photos/1309583/pexels-photo-1309583.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "Strawbery ice Cream",
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '4.2',
         '852'),
     Item(
-        "https://images.pexels.com/photos/2396220/pexels-photo-2396220.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Coffee",
+        "https://images.pexels.com/photos/1739347/pexels-photo-1739347.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "Mocca ice Cream",
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '3.2',
         '742'),
     Item(
-        "https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Salad",
+        "https://images.pexels.com/photos/749102/pexels-photo-749102.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
+        "Chocolate ice Cream",
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '4.1',
@@ -105,6 +105,7 @@ class _IcecreamState extends State<Icecream> {
                           children: <Widget>[
                             Text(
                               items.name,
+                              overflow: TextOverflow.ellipsis,
                               style: TextStyle(
                                   fontWeight: FontWeight.bold,
                                   color: Theme.of(context).primaryColor),

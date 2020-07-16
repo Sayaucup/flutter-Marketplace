@@ -2,13 +2,27 @@ import 'package:flutter/material.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:marketplace/screen/food.dart';
 import 'package:marketplace/screen/widget/food_item.dart';
+import 'dart:convert' as convert;
+import 'package:http/http.dart' as http;
+import 'package:cached_network_image/cached_network_image.dart';
 
-class Product extends StatefulWidget {
+class Foryou extends StatefulWidget {
   @override
-  _ProductState createState() => _ProductState();
+  _ForyouState createState() => _ForyouState();
 }
 
-class _ProductState extends State<Product> {
+class _ForyouState extends State<Foryou> {
+  void toast() {
+    Fluttertoast.showToast(
+        msg: "In Progress",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Theme.of(context).primaryColor,
+        textColor: Colors.white,
+        fontSize: 15);
+  }
+
   var items = [
     Item(
         "https://images.pexels.com/photos/1639557/pexels-photo-1639557.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
@@ -25,33 +39,141 @@ class _ProductState extends State<Product> {
         '4.2',
         '852'),
     Item(
-        "https://images.pexels.com/photos/2396220/pexels-photo-2396220.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Coffee",
+        "https://images.pexels.com/photos/840216/pexels-photo-840216.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "Fried spring roll",
+        '100.000',
+        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
+        '3',
+        '424'),
+    Item(
+        "https://images.pexels.com/photos/139746/pexels-photo-139746.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
+        "Sandwich meal",
         '100.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '3.2',
         '742'),
-    Item(
-        "https://images.pexels.com/photos/257816/pexels-photo-257816.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940",
-        "Salad",
-        '100.000',
-        Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
-        '4.1',
-        '721'),
   ];
-  void toast() {
-    Fluttertoast.showToast(
-        msg: "In Progress",
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.CENTER,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Theme.of(context).primaryColor,
-        textColor: Colors.white,
-        fontSize: 15);
+  // @override
+  // void initState() {
+  //   // TODO: implement initState
+  //   super.initState();
+  //   this.getJSON();
+  // }
+
+  List data;
+  Future<String> getJSON() async {
+    // This example uses the Google Books API to search for books about http.
+    // https://developers.google.com/books/docs/overview
+    var url = 'https://unsplash.com/napi/photos/Q14J2k8VE3U/related';
+
+    // Await the http get response, then decode the json-formatted response.
+    var response = await http.get(url);
+    if (response.statusCode == 200) {
+      var jsonResponse = convert.jsonDecode(response.body);
+      setState(() {
+        data = jsonResponse['results'];
+      });
+      print('$jsonResponse.');
+    } else {
+      print('Request failed with status: ${response.statusCode}.');
+    }
   }
+
+  Widget _build(item) => Container(
+        child: Column(
+          children: <Widget>[
+            CachedNetworkImage(
+              progressIndicatorBuilder: (context, url, downloadProgress) =>
+                  CircularProgressIndicator(value: downloadProgress.progress),
+              imageUrl: item['urls']['small'],
+              placeholder: (context, url) => CircularProgressIndicator(),
+              errorWidget: (context, url, error) => Icon(Icons.error),
+            ),
+            ListTile(
+              title: Text(item['user']['name']),
+              subtitle: Text(item['alt_description']),
+            )
+          ],
+        ),
+      );
 
   @override
   Widget build(BuildContext context) {
+    // return GridView.count(
+    //   padding: EdgeInsets.all(15),
+    //   physics: ClampingScrollPhysics(),
+    //   crossAxisCount: 2,
+    //   crossAxisSpacing: 15,
+    //   shrinkWrap: true,
+    //   childAspectRatio: 1 / 1.6,
+    //   children: data.map((e) {
+    //     return InkWell(
+    //       onTap: () {},
+    //       child: Container(
+    //         margin: EdgeInsets.symmetric(vertical: 5),
+    //         child: Column(
+    //           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+    //           crossAxisAlignment: CrossAxisAlignment.center,
+    //           children: <Widget>[
+    //             AspectRatio(
+    //               aspectRatio: 1 / 1,
+    //               child: ClipRRect(
+    //                 borderRadius: BorderRadius.circular(10),
+    //                 child: Image(
+    //                   image: NetworkImage(e['urls']['small']),
+    //                   fit: BoxFit.cover,
+    //                 ),
+    //               ),
+    //             ),
+    //             Padding(
+    //               padding: const EdgeInsets.all(3),
+    //               child: Column(
+    //                 crossAxisAlignment: CrossAxisAlignment.start,
+    //                 children: <Widget>[
+    //                   Text(
+    //                     e['user']['name'],
+    //                     style: TextStyle(
+    //                         fontWeight: FontWeight.bold,
+    //                         color: Theme.of(context).primaryColor),
+    //                   ),
+    //                   Text(
+    //                     e['alt_description'],
+    //                     overflow: TextOverflow.ellipsis,
+    //                     style: TextStyle(fontWeight: FontWeight.bold),
+    //                   ),
+    //                   // Row(
+    //                   //   children: <Widget>[
+    //                   //     items.rating,
+    //                   //     Padding(
+    //                   //       padding:
+    //                   //           const EdgeInsets.symmetric(horizontal: 3),
+    //                   //       child: Text(
+    //                   //         items.rating2,
+    //                   //         style: TextStyle(
+    //                   //           fontFamily: 'FredokaOne',
+    //                   //           fontSize: 13,
+    //                   //         ),
+    //                   //       ),
+    //                   //     ),
+    //                   //     Text('(${items.review})',
+    //                   //         style: TextStyle(
+    //                   //           fontFamily: 'FredokaOne',
+    //                   //           fontSize: 13,
+    //                   //         ))
+    //                   //   ],
+    //                   // ),
+    //                 ],
+    //               ),
+    //             )
+    //           ],
+    //         ),
+    //       ),
+    //     );
+    //   }).toList(),
+    //   //   itemBuilder: (ctx, i) {
+    //   //   return _build(data[i]);
+    //   // },
+    // );
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 15, vertical: 10),
       child: GridView.count(
@@ -135,70 +257,5 @@ class _ProductState extends State<Product> {
         }).toList(),
       ),
     );
-
-    // return Container(
-    //   margin: EdgeInsets.all(10),
-    //   child: ListView.builder(
-    //     physics: NeverScrollableScrollPhysics(),
-    //     itemCount: items.length,
-    //     shrinkWrap: true,
-    //     itemBuilder: (ctx, i) {
-    //       return InkWell(
-    //         onTap: () {},
-    //         child: Container(
-    //           margin: EdgeInsets.symmetric(
-    //             vertical: 5,
-    //           ),
-    //           child: Row(
-    //             children: <Widget>[
-    //               ClipRRect(
-    //                 borderRadius: BorderRadius.circular(12),
-    //                 child: FadeInImage(
-    //                   placeholder: AssetImage("assets/img/1.jpg"),
-    //                   image: NetworkImage(items[i].itemImage),
-    //                   width: 150,
-    //                   height: 150,
-    //                   fit: BoxFit.contain,
-    //                 ),
-    //               ),
-    //               Container(
-    //                 margin: EdgeInsets.only(
-    //                   left: 10,
-    //                 ),
-    //                 child: Column(
-    //                   crossAxisAlignment: CrossAxisAlignment.start,
-    //                   children: <Widget>[
-    //                     Text(
-    //                       items[i].itemName,
-    //                       style: TextStyle(
-    //                         fontSize: 18,
-    //                       ),
-    //                     ),
-    //                     Text(items[i].itemRestaurantName),
-    //                     Text(
-    //                       items[i].itemRestaurantAddress,
-    //                       overflow: TextOverflow.ellipsis,
-    //                     ),
-    //                     Text(
-    //                       items[i].itemRating,
-    //                     ),
-    //                     Text(
-    //                       "\$${items[i].itemPrice}",
-    //                       style: TextStyle(
-    //                         color: Theme.of(context).primaryColor,
-    //                         fontSize: 18,
-    //                         fontWeight: FontWeight.bold,
-    //                       ),
-    //                     ),
-    //                   ],
-    //                 ),
-    //               )
-    //             ],
-    //           ),
-    //         ),
-    //       );
-    //     },
-    //   ),
-    // );
   }
 }

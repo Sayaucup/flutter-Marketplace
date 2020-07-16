@@ -14,12 +14,22 @@ class Food extends StatefulWidget {
 }
 
 class _FoodState extends State<Food> {
-  void toast() {
+  void toast1() {
     Fluttertoast.showToast(
         msg: "In Progress",
         toastLength: Toast.LENGTH_SHORT,
         gravity: ToastGravity.CENTER,
         timeInSecForIosWeb: 1,
+        backgroundColor: Theme.of(context).primaryColor,
+        textColor: Colors.white,
+        fontSize: 15);
+  }
+
+  void toast() {
+    Fluttertoast.showToast(
+        msg: "Your item has been added to your cart",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
         backgroundColor: Theme.of(context).primaryColor,
         textColor: Colors.white,
         fontSize: 15);
@@ -155,7 +165,7 @@ class _FoodState extends State<Food> {
                   child: RaisedButton.icon(
                       color: Theme.of(context).primaryColor,
                       onPressed: () {
-                        toast();
+                        toast1();
                       },
                       icon: Icon(
                         EvaIcons.creditCard,
