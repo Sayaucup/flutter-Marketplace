@@ -14,6 +14,8 @@ class _DiscountState extends State<Discount> {
         "https://images.pexels.com/photos/4109234/pexels-photo-4109234.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500",
         "French fries",
         '70.000',
+        '80.000',
+        '90.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '5',
         '721'),
@@ -21,6 +23,8 @@ class _DiscountState extends State<Discount> {
         'https://images.pexels.com/photos/315755/pexels-photo-315755.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Pizza',
         '70.000',
+        '80.000',
+        '90.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '3.7',
         '123'),
@@ -28,6 +32,8 @@ class _DiscountState extends State<Discount> {
         'https://images.pexels.com/photos/1998635/pexels-photo-1998635.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Baked pastry',
         '70.000',
+        '80.000',
+        '90.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '2.1',
         '213'),
@@ -35,10 +41,13 @@ class _DiscountState extends State<Discount> {
         'https://images.pexels.com/photos/3186654/pexels-photo-3186654.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940',
         'Barbecue',
         '70.000',
+        '80.000',
+        '90.000',
         Icon(Icons.star, size: 15, color: Color(0xfff1c40f)),
         '3.9',
         '412'),
   ];
+
   void toast() {
     Fluttertoast.showToast(
         msg: "In Progress",

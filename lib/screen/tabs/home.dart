@@ -24,19 +24,6 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
-  // var time = Moment().format('HH:mm:ss');
-
-  // setState(() {
-  //   if (time >= '05:00:00' && time <= '11:00:00') {
-  //     Text('Morning');
-  //   } else if (time >= '11:00:00' && time <= '15:00:00') {
-  //     Text('Noon');
-  //   } else if (time >= '15:00:00' && time <= '18:00:00') {
-  //     Text('Afternoon');
-  //   } else if (time >= '18:00:00' && time <= '05:00:00') {
-  //     Text('Night');
-  //   }
-  // });
   void toast() {
     Fluttertoast.showToast(
         msg: "In Progress",
@@ -47,49 +34,6 @@ class _HomeState extends State<Home> {
         fontSize: 15);
   }
 
-  // @override
-  // void initState() {
-  //   // TODO: implement initState
-  //   super.initState();
-  //   this.getJSON();
-  // }
-
-  List data;
-  Future<Map> getJSON() async {
-    // This example uses the Google Books API to search for books about http.
-    // https://developers.google.com/books/docs/overview
-    var url = 'https://unsplash.com/napi/photos/Q14J2k8VE3U/related';
-
-    // Await the http get response, then decode the json-formatted response.
-    var response = await http.get(url);
-    if (response.statusCode == 200) {
-      var jsonResponse = convert.jsonDecode(response.body);
-      setState(() {
-        data = jsonResponse['results'];
-      });
-      print(jsonResponse);
-    } else {
-      print('Request failed with status: ${response.statusCode}.');
-    }
-  }
-
-  Widget _build(item) => Container(
-        child: Column(
-          children: <Widget>[
-            CachedNetworkImage(
-              progressIndicatorBuilder: (context, url, downloadProgress) =>
-                  CircularProgressIndicator(value: downloadProgress.progress),
-              imageUrl: item['urls']['small'],
-              placeholder: (context, url) => CircularProgressIndicator(),
-              errorWidget: (context, url, error) => Icon(Icons.error),
-            ),
-            ListTile(
-              title: Text(item['user']['name']),
-              subtitle: Text(item['alt_description']),
-            )
-          ],
-        ),
-      );
   static const duration = const Duration(seconds: 1);
   int secondPassed = 3600;
   Timer timer;
@@ -370,70 +314,10 @@ class _HomeState extends State<Home> {
             ),
           ),
           Foryou(),
-          // GridView.count(
-          //   padding: EdgeInsets.symmetric(horizontal: 15),
-          //   physics: ClampingScrollPhysics(),
-          //   crossAxisCount: 2,
-          //   crossAxisSpacing: 15,
-          //   shrinkWrap: true,
-          //   childAspectRatio: 1 / 1.6,
-          //   children: data.map((e) {
-          //     return InkWell(
-          //       onTap: () {
-          //         toast();
-          //       },
-          //       child: Column(
-          //         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          //         crossAxisAlignment: CrossAxisAlignment.center,
-          //         children: <Widget>[
-          //           AspectRatio(
-          //             aspectRatio: 1 / 0.5,
-          //             child: ClipRRect(
-          //               borderRadius: BorderRadius.circular(10),
-          //               child: Image(
-          //                 image: NetworkImage(e['urls']['small']),
-          //                 fit: BoxFit.cover,
-          //               ),
-          //             ),
-          //           ),
-          //           Padding(
-          //             padding: const EdgeInsets.all(3),
-          //             child: Column(
-          //               crossAxisAlignment: CrossAxisAlignment.start,
-          //               children: <Widget>[
-          //                 Text(
-          //                   e['user']['name'],
-          //                   style: TextStyle(
-          //                       fontWeight: FontWeight.bold,
-          //                       color: Theme.of(context).primaryColor),
-          //                 ),
-          //                 Text(
-          //                   e['alt_description'],
-          //                   overflow: TextOverflow.ellipsis,
-          //                   style: TextStyle(fontWeight: FontWeight.bold),
-          //                 ),
-          //               ],
-          //             ),
-          //           )
-          //         ],
-          //       ),
-          //     );
-          //   }).toList(),
-          //   //   itemBuilder: (ctx, i) {
-          //   //   return _build(data[i]);
-          //   // },
-          // )
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          toast();
-        },
-        tooltip: 'whats?',
-        child: Icon(
-          Entypo.help,
-          color: Theme.of(context).primaryColor,
-        ),
+        onPressed: () {},
       ),
     );
   }

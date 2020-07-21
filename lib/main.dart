@@ -7,9 +7,6 @@ import 'package:lottie/lottie.dart';
 import 'package:marketplace/screen/tabs.dart';
 
 void main() {
-  var now = DateTime.now();
-  print(DateFormat('hh:mm:ss').format(now));
-
   runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(

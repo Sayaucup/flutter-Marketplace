@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:http/http.dart';
 import 'package:marketplace/screen/widget/food_item.dart';
 import 'package:typicons_flutter/typicons_flutter.dart';
+import 'package:marketplace/utils/helper.dart';
 
 class Cart extends StatefulWidget {
   final Item items;
@@ -21,7 +23,26 @@ class Cartt {
 }
 
 class _CartState extends State<Cart> {
+  final dbHelper = DatabaseHelper.instance;
+
   int i = 1;
+  void _query() async {
+    final allRows = await dbHelper.queryAllRows();
+    print('query all rows:');
+    allRows.forEach((row) => print(row));
+  }
+
+  @override
+  void initState() {
+    // TODO: implement initState
+    super.initState();
+    _deleteAll();
+    _query();
+  }
+
+  void _deleteAll() async {
+    await dbHelper.deleteAll();
+  }
 
   var cart = [
     Cartt(

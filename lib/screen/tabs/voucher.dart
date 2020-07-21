@@ -28,6 +28,30 @@ class _VoucherState extends State<Voucher> {
         fontSize: 15);
   }
 
+  data() {
+    return Column(
+      children: voucherr.map((e) {
+        return InkWell(
+          onLongPress: () {
+            toast();
+          },
+          child: Container(
+            margin: EdgeInsets.symmetric(horizontal: 15, vertical: 5),
+            height: 100,
+            width: MediaQuery.of(context).size.width,
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(10),
+              child: Image(
+                image: AssetImage(e),
+                fit: BoxFit.cover,
+              ),
+            ),
+          ),
+        );
+      }).toList(),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,35 +105,11 @@ class _VoucherState extends State<Voucher> {
             ),
             SearchVoucher(),
             Container(
-              height: MediaQuery.of(context).size.height - 202,
-              child: ListView(
-                shrinkWrap: true,
-                children: <Widget>[
-                  Column(
-                    children: voucherr.map((e) {
-                      return InkWell(
-                        onLongPress: () {
-                          toast();
-                        },
-                        child: Container(
-                          margin:
-                              EdgeInsets.symmetric(horizontal: 15, vertical: 5),
-                          height: 100,
-                          width: MediaQuery.of(context).size.width,
-                          child: ClipRRect(
-                            borderRadius: BorderRadius.circular(10),
-                            child: Image(
-                              image: AssetImage(e),
-                              fit: BoxFit.cover,
-                            ),
-                          ),
-                        ),
-                      );
-                    }).toList(),
-                  )
-                ],
-              ),
-            ),
+                height: MediaQuery.of(context).size.height - 202,
+                child: SingleChildScrollView(
+                  child: data(),
+                  scrollDirection: Axis.vertical,
+                )),
           ],
         ));
   }
