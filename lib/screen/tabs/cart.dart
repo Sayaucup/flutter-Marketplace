@@ -28,8 +28,8 @@ class _CartState extends State<Cart> {
   int i = 1;
   void _query() async {
     final allRows = await dbHelper.queryAllRows();
-    print('query all rows:');
-    allRows.forEach((row) => print(row));
+    print(allRows);
+    // allRows.forEach((row) => print(row));
   }
 
   @override
