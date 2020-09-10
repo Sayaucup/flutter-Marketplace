@@ -23,12 +23,16 @@ class Cartt {
 }
 
 class _CartState extends State<Cart> {
+  var cartt;
   final dbHelper = DatabaseHelper.instance;
 
   int i = 1;
   void _query() async {
     final allRows = await dbHelper.queryAllRows();
     print(allRows);
+    setState(() {
+      cartt = allRows;
+    });
     // allRows.forEach((row) => print(row));
   }
 
@@ -41,7 +45,95 @@ class _CartState extends State<Cart> {
   }
 
   void _deleteAll() async {
-    await dbHelper.deleteAll();
+    await dbHelper.deleteDB();
+  }
+
+  list() {
+    return Container(
+        height: 400,
+        child: ListView.builder(
+            itemCount: cartt == null ? 0 : cartt.length,
+            itemBuilder: (context, index) {
+              return Container(
+                child: Column(
+                  children: <Widget>[
+                    Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Container(
+                          margin: EdgeInsets.only(left: 15),
+                          height: 100,
+                          width: 100,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(5),
+                              image: DecorationImage(
+                                  image:
+                                      NetworkImage('${cartt[index]["gambar"]}'),
+                                  fit: BoxFit.cover)),
+                        ),
+                        SizedBox(
+                          width: 10,
+                        ),
+                        Expanded(
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: <Widget>[
+                              Text(
+                                '${cartt[index]["nama_produk"]}',
+                                style: TextStyle(
+                                    fontSize: 18, fontWeight: FontWeight.w600),
+                              ),
+                              SizedBox(
+                                height: 10,
+                              ),
+                              Text('Rp.${cartt[index]["harga"]}.000')
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.end,
+                      children: <Widget>[
+                        IconButton(
+                          onPressed: () {},
+                          icon: Icon(Typicons.trash,
+                              color: Theme.of(context).primaryColor),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              i--;
+                            });
+                          },
+                          icon: Icon(Typicons.minus,
+                              color: Theme.of(context).primaryColor),
+                        ),
+                        Text(
+                          '$i',
+                          style: TextStyle(
+                              fontSize: 15, fontWeight: FontWeight.w800),
+                        ),
+                        IconButton(
+                          onPressed: () {
+                            setState(() {
+                              i++;
+                            });
+                          },
+                          icon: Icon(Typicons.plus,
+                              color: Theme.of(context).primaryColor),
+                        ),
+                      ],
+                    ),
+                    Divider(
+                      color: Colors.blueAccent[300],
+                      height: 25,
+                      thickness: 2,
+                    )
+                  ],
+                ),
+              );
+            }));
   }
 
   var cart = [
@@ -119,93 +211,9 @@ class _CartState extends State<Cart> {
               ),
             ),
           ),
-          Container(
-            height: 400,
-            child: ListView(
-              scrollDirection: Axis.vertical,
-              shrinkWrap: true,
-              children: cart.map((items) {
-                return Container(
-                  child: Column(
-                    children: <Widget>[
-                      Row(
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: <Widget>[
-                          Container(
-                            margin: EdgeInsets.only(left: 15),
-                            height: 100,
-                            width: 100,
-                            decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(5),
-                                image: DecorationImage(
-                                    image: NetworkImage(items.image),
-                                    fit: BoxFit.cover)),
-                          ),
-                          SizedBox(
-                            width: 10,
-                          ),
-                          Expanded(
-                            child: Column(
-                              crossAxisAlignment: CrossAxisAlignment.start,
-                              children: <Widget>[
-                                Text(
-                                  items.name,
-                                  style: TextStyle(
-                                      fontSize: 18,
-                                      fontWeight: FontWeight.w600),
-                                ),
-                                SizedBox(
-                                  height: 10,
-                                ),
-                                Text(items.price)
-                              ],
-                            ),
-                          ),
-                        ],
-                      ),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.end,
-                        children: <Widget>[
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Typicons.trash,
-                                color: Theme.of(context).primaryColor),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              setState(() {
-                                i--;
-                              });
-                            },
-                            icon: Icon(Typicons.minus,
-                                color: Theme.of(context).primaryColor),
-                          ),
-                          Text(
-                            '$i',
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w800),
-                          ),
-                          IconButton(
-                            onPressed: () {
-                              setState(() {
-                                i++;
-                              });
-                            },
-                            icon: Icon(Typicons.plus,
-                                color: Theme.of(context).primaryColor),
-                          ),
-                        ],
-                      ),
-                      Divider(
-                        color: Colors.blueAccent[300],
-                        height: 25,
-                        thickness: 2,
-                      )
-                    ],
-                  ),
-                );
-              }).toList(),
-            ),
+          SingleChildScrollView(
+            scrollDirection: Axis.vertical,
+            child: list(),
           ),
           Container(
               height: 50,

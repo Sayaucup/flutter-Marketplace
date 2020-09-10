@@ -39,7 +39,7 @@ class _FoodState extends State<Food> {
         fontSize: 15);
   }
 
-  String hargaa = '0';
+  String hargaa = '';
 
   @override
   void initState() {
@@ -73,30 +73,35 @@ class _FoodState extends State<Food> {
   }
 
   keranjang(namaProduk, harga, image) async {
-    harga = int.parse(harga);
-    int count = await dbHelper.queryRowCountWhere(namaProduk);
-    int jumlah;
-    int hargaBefore;
-    final where = await dbHelper.queryWhere(namaProduk);
-    if (count > 0) {
-      where.forEach((row) => jumlah = row['jumlah']);
-      where.forEach((row) => hargaBefore = row['harga']);
-      Map<String, dynamic> row = {
-        DatabaseHelper.columnJumlah: jumlah + 1,
-        DatabaseHelper.columnHarga: hargaBefore + harga
-      };
-      await dbHelper.update(row);
-      print('nambah jumlah');
-    } else {
-      Map<String, dynamic> row = {
-        DatabaseHelper.columnNamaProduk: namaProduk,
-        DatabaseHelper.columnHarga: harga,
-        DatabaseHelper.columnImage: image,
-        DatabaseHelper.columnJumlah: 1,
-      };
-      await dbHelper.insert(row);
-      print('nambah barang');
-    }
+    // harga = int.parse(harga);
+    // int count = await dbHelper.queryRowCountWhere(namaProduk);
+    // print(count);
+
+    // int jumlah;
+    // int hargaBefore;
+    // final where = await dbHelper.queryWhere(namaProduk);
+    // if (count > 0) {
+    //   where.forEach((row) => jumlah = row['jumlah']);
+    //   where.forEach((row) => hargaBefore = row['harga']);
+    //   Map<String, dynamic> row = {
+    //     DatabaseHelper.columnJumlah: jumlah + 1,
+    //     DatabaseHelper.columnHarga: hargaBefore + harga
+    //   };
+    //   await dbHelper.update(row);
+    //   print('nambah jumlah');
+    // } else {
+    Map<String, dynamic> row = {
+      DatabaseHelper.columnNamaProduk: namaProduk,
+      DatabaseHelper.columnHarga: harga,
+      DatabaseHelper.columnImage: image,
+      DatabaseHelper.columnJumlah: 1,
+    };
+    await dbHelper.insert(row);
+    print('nambah barang');
+    // }
+    scaffoldKey.currentState.showSnackBar(SnackBar(
+      content: Text('The item has been added to the cart...'),
+    ));
   }
 
   harga() {
@@ -151,9 +156,6 @@ class _FoodState extends State<Food> {
           ),
           onPressed: () {
             keranjang(widget.items.name, hargaa, widget.items.image);
-            scaffoldKey.currentState.showSnackBar(SnackBar(
-              content: Text('The item has been added to the cart...'),
-            ));
           },
         ),
         appBar: AppBar(

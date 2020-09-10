@@ -24,6 +24,17 @@ class Home extends StatefulWidget {
 }
 
 class _HomeState extends State<Home> {
+  String greeting() {
+    var hour = DateTime.now().hour;
+    if (hour < 12) {
+      return 'Morning,';
+    }
+    if (hour < 17) {
+      return 'Afternoon,';
+    }
+    return 'Evening,';
+  }
+
   void toast() {
     Fluttertoast.showToast(
         msg: "In Progress",
@@ -66,26 +77,13 @@ class _HomeState extends State<Home> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
                 Expanded(
-                  child: Row(
-                    children: <Widget>[
-                      Text(
-                        'Hi, ',
-                        style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.black54,
-                          fontFamily: 'FredokaOne',
-                          letterSpacing: 0.5,
-                        ),
-                      ),
-                      Text(
-                        'Ucup',
-                        style: TextStyle(
-                          fontSize: 17,
-                          fontFamily: 'FredokaOne',
-                          letterSpacing: 0.5,
-                        ),
-                      ),
-                    ],
+                  child: Text(
+                    greeting(),
+                    style: TextStyle(
+                      fontSize: 17,
+                      fontFamily: 'FredokaOne',
+                      letterSpacing: 0.5,
+                    ),
                   ),
                 ),
                 Container(
@@ -123,6 +121,18 @@ class _HomeState extends State<Home> {
                   ),
                 ),
               ],
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.only(left: 15),
+            child: Text(
+              'What do you want today ?',
+              style: TextStyle(
+                fontSize: 17,
+                color: Colors.black54,
+                fontFamily: 'FredokaOne',
+                letterSpacing: 0.5,
+              ),
             ),
           ),
           //search
@@ -316,9 +326,10 @@ class _HomeState extends State<Home> {
           Foryou(),
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {},
-      ),
+      // floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      // floatingActionButton: FloatingActionButton(
+      //   onPressed: () {},
+      // ),
     );
   }
 }
